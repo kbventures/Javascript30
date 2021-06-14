@@ -49,15 +49,112 @@
 
   <audio data-key="65" src="sounds/clap.wav"></audio>
   <audio data-key="83" src="sounds/hihat.wav"></audio>
-  <audio data-key="68" src="sounds/kick.wav"></audio>
-  <audio data-key="70" src="sounds/openhat.wav"></audio>
-  <audio data-key="71" src="sounds/boom.wav"></audio>
-  <audio data-key="72" src="sounds/ride.wav"></audio>
-  <audio data-key="74" src="sounds/snare.wav"></audio>
-  <audio data-key="75" src="sounds/tom.wav"></audio>
-  <audio data-key="76" src="sounds/tink.wav"></audio>
+
 
 <script>
+
+// var getDataKeyElement = document.body.querySelector('.key[data-key="76"]');
+// console.log(getDataKeyelement);a
+
+// getDataKeyElement.addEventListener("keydown", function(event){log.textContent += `${event.code}`});
+
+// button.onclick = function(){}
+
+// https://stackoverflow.com/questions/1866376/html-play-audio-without-controls/1997090
+
+
+window.addEventListener("keydown", checkKeyPress, false);
+
+function checkKeyPress(key){
+  if(key.keyCode == "65"){
+
+    var visualDataKeyElement = document.body.querySelector('div .key[data-key="65"]');
+    var waveDataKeyElement = document.body.querySelector('audio .key[data-key="65"]');
+    visualDataKeyElement.classList.add("playing");
+    
+    var clap = new Audio('sounds/clap.wav');
+    clap.play();
+
+
+  }
+  if(key.keyCode == "83"){
+    var getDataKeyElement = document.body.querySelector('.key[data-key="83"]');
+    getDataKeyElement.classList.add("playing");
+
+    var hihat = new Audio('sounds/hihat.wav');
+    hihat.play();
+
+  }
+  if(key.keyCode == "68"){
+    var getDataKeyElement = document.body.querySelector('.key[data-key="68"]');
+    getDataKeyElement.classList.add("playing");
+
+    var kick = new Audio('sounds/kick.wav');
+    kick.play();
+
+
+
+
+  // <audio data-key="75" src="sounds/tom.wav"></audio>
+  // <audio data-key="76" src="sounds/tink.wav"></audio>
+
+
+  }
+  if(key.keyCode == "70"){
+    var getDataKeyElement = document.body.querySelector('.key[data-key="70"]');
+    getDataKeyElement.classList.add("playing");
+
+    var openhat = new Audio('sounds/openhat.wav');
+    openhat.play();
+
+
+  }
+  if(key.keyCode == "71"){
+    var getDataKeyElement = document.body.querySelector('.key[data-key="71"]');
+    getDataKeyElement.classList.add("playing");
+
+    var boom = new Audio('sounds/boom.wav');
+    boom.play();
+
+
+  }
+  if(key.keyCode == "72"){
+    var getDataKeyElement = document.body.querySelector('.key[data-key="72"]');
+    getDataKeyElement.classList.add("playing");
+
+    var ride = new Audio('sounds/ride.wav');
+    ride.play();
+
+
+  }
+  if(key.keyCode == "74"){
+    var getDataKeyElement = document.body.querySelector('.key[data-key="74"]');
+    getDataKeyElement.classList.add("playing");
+
+    var snare = new Audio('sounds/snare.wav');
+    snare.play();
+
+
+  }
+  if(key.keyCode == "75"){
+    var getDataKeyElement = document.body.querySelector('.key[data-key="75"]');
+    getDataKeyElement.classList.add("playing");
+
+    var tom = new Audio('sounds/tom.wav');
+    tom.play();
+s
+
+  }
+  if(key.keyCode == "76"){
+    var getDataKeyElement = document.body.querySelector('.key[data-key="76"]');
+    getDataKeyElement.classList.add("playing");
+
+    var tink = new Audio('sounds/tink.wav');
+    tink.play();
+
+
+  }
+}
 
 </script>
 
