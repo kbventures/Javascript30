@@ -56,5 +56,4 @@ kbd {
   transform: scale(1.1);
   border-color: #ffc600;
   box-shadow: 0 0 1rem #ffc600;
-  transition: 0.25s ease-in-out;
 }
