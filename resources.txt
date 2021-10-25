@@ -1,10 +1,14 @@
 Javascript DOM Tutorial
 
-https://www.tutorialrepublic.com/javascript-tutorial/javascript-dom-nodes.php
+01
 
+https://www.tutorialrepublic.com/javascript-tutorial/javascript-dom-nodes.php
 
 Keyboard events
 https://www.youtube.com/watch?v=VBVOXTgXX2U
 
 Key Code 
 https://keycode.info/
+
+
+02
