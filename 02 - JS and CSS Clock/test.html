@@ -37,6 +37,9 @@
     <div class="wrap">
       <div class="box"></div>
     </div>
+    <div class="container">
+      <div class="clock">Test</div>
+    </div>
   </body>
   <script>
     console.log('Test');
@@ -46,8 +49,8 @@
     let second;
     let am_vs_pm = 'AM';
 
-    let container = document.querySelector('.wrap');
-    let clock = document.querySelector('.box');
+    let container = document.querySelector('.container');
+    let clock = document.querySelector('.clock');
 
     function clockFunction() {
       let now = new Date();

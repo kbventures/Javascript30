@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #clock_container {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 2px solid black;
+    }
+
+    #seconds {
+      height: 50%;
+      width: 0px;
+      box-sizing: border-box;
+      border: 1px solid black;
+      top: 0%;
+      left: 50%;
+      position: absolute;
+      transform-origin: bottom;
+      /* of-course, would be 60s */
+      animation: secondsMotion 60s infinite linear;
+    }
+
+    @keyframes secondsMotion {
+      0% {
+        transform: rotate(var(--sec-rot-start));
+      }
+
+      100% {
+        transform: rotate(var(--sec-rot-end));
+      }
+    }
+  </style>
+  <body>
+    <div id="clock_container">
+      <div id="seconds"></div>
+    </div>
+  </body>
+  <!-- <script>
+    var sec = new Date().getSeconds();
+    var sec_start = (sec / 60) * 360 + 'deg';
+    var sec_end = (sec / 60) * 360 + 360 + 'deg';
+    document.documentElement.style.setProperty('--sec-rot-start', sec_start);
+    document.documentElement.style.setProperty('--sec-rot-end', sec_end); -->
+  </script>
+</html>

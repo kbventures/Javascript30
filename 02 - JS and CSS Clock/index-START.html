@@ -4,15 +4,17 @@
     <meta charset="UTF-8" />
     <title>JS + CSS Clock</title>
   </head>
-  <body onload="getCurrentTime()">
+  <body onload="clockFunction()">
     <div class="clock">
       <div class="clock-face">
         <div class="hand hour-hand"></div>
         <div class="hand min-hand"></div>
-        <div class="hand second-hand"></div>
+        <div class="hand sec-hand"></div>
       </div>
     </div>
-
+    <div class="container">
+      <div class="digitalclock"></div>
+    </div>
     <style>
       html {
         background: #018ded url(https://unsplash.it/1500/1000?image=881&blur=5);
@@ -53,45 +55,110 @@
       }
 
       .hand {
-        width: 50%;
-        height: 6px;
+        height: 50%;
+        width: 5px;
         background: black;
         position: absolute;
-        top: 50%;
-        transform-origin: 100% 0;
+        top: 0%;
+        left: 50%;
+        transform-origin: bottom;
       }
 
-      .second-hand {
-        animation: rotate 60s infinite linear;
+      .sec-hand {
+        animation: rotateSeconds 60s infinite linear;
       }
-
       .min-hand {
-        animation: rotate 3600s infinite linear;
+        animation: rotateMinutes 3600s infinite linear;
       }
 
       .hour-hand {
-        animation: rotate s infinite linear;
+        animation: rotateHours 86400s infinite linear;
       }
 
-      @keyframes rotate {
+      @keyframes rotateSeconds {
+        0% {
+          transform: rotate(var(--sec-rot-start));
+        }
         100% {
-          transform: rotateZ(360deg);
+          transform: rotate(var(--sec-rot-end));
+        }
+      }
+
+      @keyframes rotateMinutes {
+        0% {
+          transform: rotate(var(--min-rot-start));
+        }
+        100% {
+          transform: rotate(var(--min-rot-end));
+        }
+      }
+
+      @keyframes rotateHourss {
+        0% {
+          transform: rotate(var(--hour-rot-start));
+        }
+        100% {
+          transform: rotate(var(--hour-rot-end));
         }
       }
     </style>
 
     <script>
-      function getCurrentTime() {
-        let clock = new Date();
-        console.log(clock);
-        console.log(clock.getHours());
-        console.log(clock.getMinutes());
-        console.log(clock.getSeconds());
+      let hour;
+      let minute;
+      let second;
+      let am_vs_pm = 'AM';
+
+      let analogClock = new Date();
+      let hours = analogClock.getHours();
+      let minutes = analogClock.getMinutes();
+      let seconds = analogClock.getSeconds();
+
+      let container = document.querySelector('.container');
+      let digitalclock = document.querySelector('.digitalclock');
+
+      let sec_start = (seconds / 60) * 360 + 'deg';
+      let sec_end = (seconds / 60) * 360 + 360 + 'deg';
+      document.documentElement.style.setProperty('--sec-rot-start', sec_start);
+      document.documentElement.style.setProperty('--sec-rot-end', sec_end);
+
+      let min_start = (minutes / 60) * 360 + 'deg';
+      let min_end = (minutes / 60) * 360 + 360 + 'deg';
+      document.documentElement.style.setProperty('--min-rot-start', min_start);
+      document.documentElement.style.setProperty('--min-rot-end', min_end);
+
+      let hour_start = (hours / 60) * 360 + 'deg';
+      let hour_end = (hours / 60) * 360 + 360 + 'deg';
+      document.documentElement.style.setProperty('--min-rot-start', hour_start);
+      document.documentElement.style.setProperty('--min-rot-end', hour_end);
+
+      function clockFunction() {
+        let now = new Date();
+
+        hour = now.getHours();
+        minute = now.getMinutes();
+        second = now.getSeconds();
+
+        if (second <= 9) {
+          second = '0' + second;
+        }
+        if (minute <= 9) {
+          minute = '0' + minute;
+        }
+
+        if (hour <= 9) {
+          hour = '0' + hour;
+        }
+        if (hour >= 12) {
+          am_vs_pm = 'PM';
+        }
+        digitalclock.textContent = `${hour} : ${minute} : ${second} ${am_vs_pm}`;
 
         setTimeout(() => {
-          getCurrentTime();
+          clockFunction();
         }, 1000);
       }
+      clockFunction();
     </script>
   </body>
 </html>
