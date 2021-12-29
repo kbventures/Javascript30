@@ -102,10 +102,11 @@
       const inputs = document.querySelectorAll('.controls input');
 
       inputs.forEach((input) => {
-        // console.log(input);
-        input.addEventListener('change', (event) => {
-          console.log(event);
+        input.addEventListener('mousemove', handleUpdate);
 
+        input.addEventListener('change', handleUpdate);
+
+        function handleUpdate() {
           if (input.id != 'base') {
             document.documentElement.style.setProperty(
               `--${input.id}`,
@@ -117,7 +118,7 @@
               `${input.value}`
             );
           }
-        });
+        }
       });
     </script>
   </body>
