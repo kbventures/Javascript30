@@ -72,31 +72,52 @@
     </style>
 
     <script>
-      const dynamicBlur = document.getElementById('blur');
+      // const dynamicBlur = document.getElementById('blur');
 
-      dynamicBlur.addEventListener('change', (event) => {
-        document.documentElement.style.setProperty(
-          '--blur',
-          `${dynamicBlur.value}px`
-        );
-      });
+      // dynamicBlur.addEventListener('change', (event) => {
+      //   document.documentElement.style.setProperty(
+      //     '--blur',
+      //     `${dynamicBlur.value}px`
+      //   );
+      // });
 
-      const dynamicSpacing = document.getElementById('spacing');
+      // const dynamicSpacing = document.getElementById('spacing');
 
-      dynamicSpacing.addEventListener('change', (event) => {
-        document.documentElement.style.setProperty(
-          '--spacing',
-          `${dynamicSpacing.value}px`
-        );
-      });
+      // dynamicSpacing.addEventListener('change', (event) => {
+      //   document.documentElement.style.setProperty(
+      //     '--spacing',
+      //     `${dynamicSpacing.value}px`
+      //   );
+      // });
 
-      const dynamicBaseColor = document.getElementById('base');
+      // const dynamicBaseColor = document.getElementById('base');
 
-      dynamicBaseColor.addEventListener('change', (event) => {
-        document.documentElement.style.setProperty(
-          '--base',
-          `${dynamicBaseColor.value}`
-        );
+      // dynamicBaseColor.addEventListener('change', (event) => {
+      //   document.documentElement.style.setProperty(
+      //     '--base',
+      //     `${dynamicBaseColor.value}`
+      //   );
+      // });
+
+      const inputs = document.querySelectorAll('.controls input');
+
+      inputs.forEach((input) => {
+        // console.log(input);
+        input.addEventListener('change', (event) => {
+          console.log(event);
+
+          if (input.id != 'base') {
+            document.documentElement.style.setProperty(
+              `--${input.id}`,
+              `${input.value}px`
+            );
+          } else {
+            document.documentElement.style.setProperty(
+              '--base',
+              `${input.value}`
+            );
+          }
+        });
       });
     </script>
   </body>
