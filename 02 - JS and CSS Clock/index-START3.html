@@ -83,13 +83,12 @@
       let convertHoursToDeg = (currentHour / 12) * 360 + 90;
 
       function setDate() {
-        secondsHand.style.transform = `rotate(${convertSecondsToDeg}deg)`;
-        minutesHand.style.transform = `rotate(${convertMinutesToDeg}deg)`;
-        hoursHand.style.transform = `rotate(${convertHoursToDeg}deg)`;
-
         convertSecondsToDeg += (1 / 60) * 360;
         convertMinutesToDeg += (1 / 3600) * 360;
         convertHoursToDeg += (1 / 216000) * 360;
+        secondsHand.style.transform = `rotate(${convertSecondsToDeg}deg)`;
+        minutesHand.style.transform = `rotate(${convertMinutesToDeg}deg)`;
+        hoursHand.style.transform = `rotate(${convertHoursToDeg}deg)`;
       }
 
       setInterval(setDate, 1000);
