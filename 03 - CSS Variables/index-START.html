@@ -103,21 +103,13 @@
 
       inputs.forEach((input) => {
         input.addEventListener('mousemove', handleUpdate);
-
         input.addEventListener('change', handleUpdate);
-
         function handleUpdate() {
-          if (input.id != 'base') {
-            document.documentElement.style.setProperty(
-              `--${input.id}`,
-              `${input.value}px`
-            );
-          } else {
-            document.documentElement.style.setProperty(
-              '--base',
-              `${input.value}`
-            );
-          }
+          const dataSizing = this.dataset.sizing || '';
+          document.documentElement.style.setProperty(
+            `--${this.name}`,
+            `${this.value}${dataSizing}`
+          );
         }
       });
     </script>
