@@ -78,10 +78,11 @@
 
 
 
-    const list = document.querySelectorAll(".mw-category a");
-    const mappedList = transformListToArray.map(x => x.textContent)
-    const boulevardsList = mappedList.filter(x => x.includes('de'))
-    console.log(boulevardsList)
+    // const list = document.querySelectorAll(".mw-category a");
+    // const transformListToArray = Array.from(list);
+    // const mappedList = transformListToArray.map(x => x.textContent).filter(x => x.includes('de'))
+    // // const boulevardsList = mappedList.filter(x => x.includes('de'))
+    // console.log(mappedList)
 
 
 
@@ -105,20 +106,25 @@
 
 
 
-    // const totalCarType = data.reduce((accumulator, currentValue) => {
+ // 8. Reduce Exercise
+    // Sum up the instances of each of these
+    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck', 'pogostick'];
 
-   
-    //     return console.log(accumulator);
-    //   // if(!accumulator.includes(currentValue)){
-    //   //   return console.log('test');
+      // const result = data.reduce((object, item)=>{
 
-    //   // }
+      //   if(!object[item]){
+      //     object[item] =0;
+      //   }
+        
+      //   object[item]++
       
-    //   return accumulator 
-    // }, []);
-// console.log(totalCarType)
+      //   return object
+      // },{})
+      // console.log(result)
 
 
   </script>
 </body>
 </html>
+
+
