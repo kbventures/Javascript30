@@ -37,41 +37,50 @@
     
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
-    const inventorsBorn1500s = inventors.filter(inventor=> inventor.year > 1499 && inventor. year < 1600);
+    // const inventorsBorn1500s = inventors.filter(inventor=> inventor.year > 1499 && inventor. year < 1600);
     // console.log(inventorsBorn1500s);
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
-    const inventorsFirstLastName = inventors.map(inventor => `${inventor.first} ${inventor.last}`)
+    // const inventorsFirstLastName = inventors.map(inventor => `${inventor.first} ${inventor.last}`)
     // console.log(inventorsFirstLastName);
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
-    const inventorsBirthAscending = inventors.sort(function(previous,current)
-    {return previous.year - current.year})
+    // const inventorsBirthAscending = inventors.sort((previous,current)=>
+    // {
+    //   console.log(previous.year)
+    //   console.log(current)
+    //   return previous.year - current.year})
     // console.log(inventorsBirthAscending)
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
-    const inventorsTotalLifeYears = inventors.reduce((accumulator, inventor)=>{
-      // console.log(inventor.passed - inventor.year, inventor.first)
-      return accumulator + inventor.passed - inventor.year; 
-    },0
-    );
+    // const inventorsTotalLifeYears = inventors.reduce((accumulator, inventor)=>{
+    //   // console.log(inventor.passed - inventor.year, inventor.first)
+    //   return accumulator + inventor.passed - inventor.year; 
+    // },0
+    // );
     // console.log(inventorsTotalLifeYears)
 
     // 5. Sort the inventors by years lived
-    const inventorsYearsLived = inventors.sort((previous,current)=>
-    {
-      let previousLifeSpan = previous.passed - previous.year; 
-      let currentLifeSpan = current.passed - current.year; 
-      return previousLifeSpan - currentLifeSpan;
-    })
+    // const inventorsYearsLived = inventors.sort((previous,current)=>
+    // {
+    //   let previousLifeSpan = previous.passed - previous.year; 
+    //   let currentLifeSpan = current.passed - current.year; 
+    //   return previousLifeSpan - currentLifeSpan;
+    // })
     // console.log(inventorsYearsLived)
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
+    // const listOfBoulevards = document.querySelectorAll('.mw-category-group a')
+    // const convertedList = Array.from(listOfBoulevards)
+    // const cleanedConvertedList = convertedList.map(boulevard => boulevard.innerHTML);
+
+    // const parisBoulevardsContainingDE = cleanedConvertedList.filter(boulevard => boulevard.includes('de'));
+    // console.log(parisBoulevardsContainingDE);
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
