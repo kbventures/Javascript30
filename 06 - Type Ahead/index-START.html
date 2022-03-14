@@ -15,8 +15,52 @@
     </ul>
   </form>
 <script>
+
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+
+
+// function when any key in input touched
+document.addEventListener('keydown', function (event) {
+
+
+  // current Input content
+console.log(document.querySelector('.search').value);
+
+currentValue = document.querySelector('.search').value;
+
+
+  // Remove Li If Key Input FROM input element
+  if(event.target.matches('input')){
+  var lis = document.querySelectorAll('.suggestions li');
+  for(var i=0; li=lis[i]; i++) {
+    li.parentNode.removeChild(li);
+    }
+    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      const obj = JSON.parse(this.responseText)
+      obj.forEach(element => { 
+        let currentCity = element.city;
+        if(currentCity.includes(event.key + currentValue)){
+          let tag = document.createElement("li")
+          let text = document.createTextNode(currentCity)
+          tag.appendChild(text);
+          let ul = document.querySelector('.suggestions')
+          ul.appendChild(tag);
+        }
+      });
+    }
+  };
+  xhttp.open("GET", endpoint, true);
+  xhttp.send();
+  }
+  
+});
 
 </script>
 </body>
 </html>
+
+
+
