@@ -96,6 +96,39 @@
   </div>
 
 <script>
+
+
+const checkboxes = document.querySelectorAll('.item input');
+
+
+let lastChecked;
+let toggler = false; 
+
+function handleCheck(e){
+  if(e.shiftKey && this.checked){
+    
+    checkboxes.forEach(cb=>{
+ 
+
+    if(cb == this || cb == lastChecked){
+      toggler =!toggler;
+     }   
+    if(toggler == true){
+        cb.checked = true;
+      }
+
+
+    })
+
+  }
+  lastChecked =this;
+}
+
+checkboxes.forEach(checkbox =>{
+  checkbox.addEventListener('click', handleCheck)
+})
+
+
 </script>
 </body>
 </html>
